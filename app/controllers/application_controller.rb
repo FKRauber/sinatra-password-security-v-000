@@ -18,11 +18,7 @@ class ApplicationController < Sinatra::Base
 
 	post "/signup" do
 		#your code here!
-		@user = session[:user_id]
-		if @user
-			erb :'/success'
-		end
-		erb :'/failure'
+		user = User.new(:username => params[:username], :password => params[:password])
 	end
 
 	get "/login" do
